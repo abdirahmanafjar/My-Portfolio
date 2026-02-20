@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/My-portfolio/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <style>
+      /* CONTACT SECTION */
+      .contact-section {
+        padding: 100px 5%;
+      }
+
+      .contact-section h1 {
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 32px;
+    
+      }
+
+      /* WRAPPER */
+      .contact-wrapper {
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        align-items: flex-start;
+      }
+
+      /* FORM */
+      .contact-form {
+        flex: 1;
+        background: var(--card-bg);
+        padding: 30px;
+        border-radius: 16px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .contact-form h2 {
+        margin-bottom: 20px;
+      }
+
+      /* FORM ROW */
+      .form-row {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 15px;
+      }
+
+      .form-row input {
+        flex: 1;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid rgba(128, 128, 128, 0.3);
+        background: transparent;
+        color: var(--text-color);
+      }
+
+      textarea {
+        resize: none;
+        height: 120px;
+      }
+
+      /* BUTTON */
+      .contact-form button {
+        margin-top: 15px;
+        padding: 12px 25px;
+        background: #ff7a00;
+        color: #fff;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: 0.3s;
+        width: 100%;
+      }
+
+      .contact-form button:hover {
+        transform: translateY(-3px);
+      }
+
+      /* CONTACT CARD */
+      .contact-card {
+        width: 320px;
+        max-width: 100%;
+        background: var(--card-bg);
+        padding: 30px;
+        border-radius: 16px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .contact-card h3 {
+        margin-bottom: 20px;
+        color: #ff7a00;
+      }
+
+      .contact-info p {
+        margin-bottom: 12px;
+      }
+      .social-links {
+        margin-top: 15px;
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-links a {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 122, 0, 0.1);
+        border-radius: 50%;
+        color: #ff7a00;
+        font-size: 16px;
+        transition: 0.3s ease;
+      }
+
+      .social-links a:hover {
+        background: #ff7a00;
+        color: #fff;
+        transform: translateY(-3px);
+      }
+
+      /* Constrain layout nicely on large screens */
+
+      /* Make form wider on desktop */
+      @media (min-width: 1200px) {
+        .contact-form {
+          max-width: 950px;
+        }
+
+        .contact-card {
+          width: 380px;
+        }
+      }
+
+      /* ========================= */
+      /* RESPONSIVE BREAKPOINTS */
+      /* ========================= */
+
+      /* Tablets */
+      @media (max-width: 992px) {
+        .contact-wrapper {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .contact-card {
+          width: 100%;
+        }
+      }
+
+      /* Mobile */
+      @media (max-width: 600px) {
+        .contact-section {
+          padding: 60px 4%;
+        }
+
+        .contact-section h1 {
+          font-size: 24px;
+          padding-top: 2.5rem;
+        }
+
+        .form-row {
+          flex-direction: column;
+        }
+
+        .contact-form {
+          padding: 20px;
+        }
+
+        .contact-card {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">ABDIRAHMAN <strong>AFJAR</strong></div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#about-me">About Me</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <!-- Desktop Theme Toggle -->
+      <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section">
+      <div class="container">
+        <h1>Contact Us</h1>
+
+        <div class="contact-wrapper">
+          <!-- FORM -->
+          <form id="contactForm">
+            <div class="contact-form">
+              <h2>Send us a message</h2>
+
+              <div class="form-row">
+                <input
+                  type="text"
+                  id="firstName"
+                  placeholder="First Name"
+                  required
+                />
+                <input
+                  type="text"
+                  id="lastName"
+                  placeholder="Last Name"
+                  required
+                />
+              </div>
+
+              <div class="form-row">
+                <input type="email" id="email" placeholder="Email" required />
+                <input
+                  type="tel"
+                  id="phone"
+                  placeholder="Contact Number"
+                  required
+                />
+              </div>
+
+              <textarea
+                placeholder="Enter your message"
+                id="message"
+                required
+              ></textarea>
+
+              <button type="submit">Send Message</button>
+            </div>
+          </form>
+
+          <!-- CONTACT CARD -->
+          <div class="contact-card">
+            <h3>Hi! We are always here to help.</h3>
+
+            <div class="contact-info">
+              <p>
+                <strong>Hotline:</strong><br />
+                +254 717 474 657
+              </p>
+              <p>
+                <strong>SMS / WhatsApp:</strong><br />
+                +254 717 474 657
+              </p>
+              <p>
+                <strong>Email:</strong><br />
+                abdirahmanabdirisack@gmail.com
+              </p>
+            </div>
+
+            <p>Connect with us</p>
+            <div class="social-links">
+              <a href="https://facebook.com/" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://instagram.com/" target="_blank">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://tiktok.com/" target="_blank">
+                <i class="fab fa-tiktok"></i>
+              </a>
+              <a href="https://twitter.com/" target="_blank">
+                <i class="fab fa-x-twitter"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script src="/My-portfolio/js/main.js"></script>
+</html>
