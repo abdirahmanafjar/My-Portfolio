@@ -3,7 +3,7 @@
 This is my personal developer portfolio built to showcase my projects, skills, and services.
 
 Live Preview:  
-👉 (https://abdirahman-afjar.vercel.app/)
+👉 https://abdirahman-afjar.vercel.app/
 
 ---
 
@@ -68,7 +68,7 @@ My-portfolio/
 ## 📸 Screenshots
 
 
-![alt text](image.png)
+![home-page image](/src/assets/image.png)
 
 ---
 
@@ -86,3 +86,4 @@ If you’d like to work with me:
 
 
 This project is open-source and available under the MIT License.
+
