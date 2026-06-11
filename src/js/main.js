@@ -23,7 +23,6 @@ toggle.addEventListener("click", () => {
   }
 });
 
-
 // HAMBURGER MENU
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.querySelector("nav ul");
@@ -31,9 +30,6 @@ const navLinks = document.querySelector("nav ul");
 hamburger.addEventListener("click", () => {
   navLinks.classList.toggle("active");
 });
-
-
-
 
 // Animate About Skills on Scroll
 const skillSection = document.querySelector(".about-skills");
@@ -67,26 +63,26 @@ function animateSkills() {
 }
 
 window.addEventListener("scroll", animateSkills);
+//contact us function
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+  const firstName = document.getElementById("firstName").value.trim();
+  const lastName = document.getElementById("lastName").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const message = document.getElementById("message").value.trim();
 
-    const firstName = document.getElementById("firstName").value.trim();
-    const lastName = document.getElementById("lastName").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const message = document.getElementById("message").value.trim();
+  const whatsappNumber = "254717474657"; // your WhatsApp number
 
-    const whatsappNumber = "254717474657"; // your WhatsApp number
+  const text =
+    `New Portfolio Inquiry:%0A%0A` +
+    `Name: ${firstName} ${lastName}%0A` +
+    `Email: ${email}%0A` +
+    `Phone: ${phone}%0A%0A` +
+    `Message:%0A${message}`;
 
-    const text =
-        `New Portfolio Inquiry:%0A%0A` +
-        `Name: ${firstName} ${lastName}%0A` +
-        `Email: ${email}%0A` +
-        `Phone: ${phone}%0A%0A` +
-        `Message:%0A${message}`;
+  const url = `https://wa.me/0717474657?text=welcome`;
 
-    const url = `https://wa.me/0717474657?text=welcome`;
-
-    window.open(url, "_blank");
+  window.open(url, "_blank");
 });
