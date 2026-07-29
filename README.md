@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 # 🚀 Abdirahman Afjar – Portfolio Website
 
 This is my personal developer portfolio built to showcase my projects, skills, and services.
