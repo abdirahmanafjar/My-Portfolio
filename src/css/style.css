@@ -40,6 +40,8 @@ body {
   transition:
     background 0.3s ease,
     color 0.3s ease;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
 /* NAVBAR */
@@ -602,7 +604,7 @@ body.dark-mode .theme-toggle span:nth-child(3) {
 }
 
 .about-text {
-  max-width: 500px;
+  max-width: 340px;
 }
 
 .about-text h2 {
