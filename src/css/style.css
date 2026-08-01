@@ -230,6 +230,7 @@ body.dark-mode .theme-toggle span:nth-child(3) {
   border-radius: 25px;
   color: #fff;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .btn-primary a {
@@ -244,14 +245,14 @@ body.dark-mode .theme-toggle span:nth-child(3) {
   border-radius: 25px;
   color: #ff7a00;
   cursor: pointer;
-  transition: transform scale 0.9s;
+  transition: transform 0.9s;
 }
 .btn-outline a {
   text-decoration: none;
   color: #ff7a00;
 }
 .btn-outline:hover {
-  background: linear-gradient(135deg, #ff7b0059, #ffb34708);
+  background: var(--card-bg);
   color: white;
   transform: scale(1.1);
 }
@@ -426,7 +427,7 @@ body.dark-mode .theme-toggle span:nth-child(3) {
 
 .project-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 0.1px 30px #ff7b00a2;
+  box-shadow: 0 4px 80px var(--card);
 }
 .project-image {
   background: #0f2c38;
@@ -618,6 +619,10 @@ body.dark-mode .theme-toggle span:nth-child(3) {
   padding: 10px 20px;
   border-radius: 12px;
   font-size: 14px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  font-style: italic;
 }
 
 .about-text {
@@ -808,8 +813,12 @@ body.dark-mode .skill-bar {
   width: 100%;
   border: 1.3px solid var(--border);
   text-align: center;
+  transition: transform 0.9s;
 }
-
+.testi-card:hover {
+  transform: scale(1.06);
+  box-shadow: 0 4px 80px var(--card);
+}
 .testi-card img {
   width: 70px;
   height: 70px;
@@ -843,7 +852,7 @@ body.dark-mode .skill-bar {
 footer {
   color: var(--text-color);
   padding: 50px 8% 20px;
-  border-top: 0.7px solid #a2a2a299;
+  border-top: 0.7px solid var(--border);
   margin-top: 8rem;
 }
 
