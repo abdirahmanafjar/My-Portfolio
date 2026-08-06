@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog-page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #3b82f6;
+        --secondary: #60a5fa;
+        --background: #0d1117;
+        --card: #161b22;
+        --text: #ffffff;
+        --paragraph: #b8c1cc;
+        --border: rgba(255, 255, 255, 0.08);
+        --shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+        --radius: 18px;
+
+        --font-display: "Space Grotesk", sans-serif;
+        --font-body: "Inter", sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: var(--background);
+        color: var(--text);
+        font-family: var(--font-body);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* NAVBAR */
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px 8%;
+        position: fixed; /* keeps it fixed */
+        top: 0; /* sticks to the top */
+        left: 0; /* aligns to left edge */
+        width: 100%; /* spans full width */
+        background: rgba(
+          8,
+          8,
+          8,
+          0.05
+        ); /*give it a background so text is readable*/
+        z-index: 1000; /* ensures it stays above other elements */
+        backdrop-filter: blur(8px);
+      }
+
+      .logo {
+        font-weight: 700;
+        font-size: 20px;
+        color: var(--primary);
+      }
+      .logo strong {
+        color: var(--paragraph);
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 35px;
+        font-size: 14px;
+        opacity: 0.85;
+      }
+
+      nav ul li {
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: var(--text-color);
+      }
+
+      nav ul li a:hover {
+        color: var(--primary);
+      }
+
+      .nav-btn {
+        background: var(--primary);
+        border: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        color: white;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      /* THEME TOGGLE (3 lines icon) */
+      .theme-toggle {
+        font-size: 20px;
+        cursor: pointer;
+        color: var(--text-color);
+        margin-left: 20px;
+      }
+
+      .hamburger {
+        width: 30px;
+        height: 22px;
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+      }
+
+      .hamburger span {
+        height: 3px;
+        width: 100%;
+        background: white;
+        border-radius: 5px;
+      }
+
+      /* Show hamburger only on mobile */
+      @media (max-width: 768px) {
+        .hamburger {
+          display: flex;
+        }
+
+        nav ul {
+          display: none;
+        }
+      }
+
+      @media (max-width: 768px) {
+        nav ul {
+          position: absolute;
+          top: 80px;
+          left: 0;
+          width: 100%;
+          background: var(--background);
+          flex-direction: column;
+          text-align: center;
+          padding: 20px 0;
+        }
+
+        nav ul.active {
+          display: flex;
+        }
+      }
+
+      /* Animate when active */
+      body.dark-mode .theme-toggle span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      body.dark-mode .theme-toggle span:nth-child(2) {
+        opacity: 0;
+      }
+
+      body.dark-mode .theme-toggle span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+      /* ---------- Hero ---------- */
+      header.hero {
+        padding: 84px 0 56px;
+        border-bottom: 1px solid var(--border);
+      }
+      .eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--secondary);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+      .cursor {
+        display: inline-block;
+        width: 8px;
+        height: 16px;
+        background: var(--secondary);
+        animation: blink 1.1s steps(1) infinite;
+      }
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+      h1.hero-title {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: clamp(2.2rem, 5vw, 3.4rem);
+        letter-spacing: -0.01em;
+        margin-bottom: 18px;
+      }
+      .hero-sub {
+        color: var(--paragraph);
+        font-size: 1.05rem;
+        max-width: 46ch;
+      }
+
+      /* ---------- Filters ---------- */
+      .filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 32px 0;
+      }
+      .filter-pill {
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        padding: 7px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        color: var(--paragraph);
+        background: transparent;
+        cursor: pointer;
+        transition:
+          border-color 0.2s,
+          color 0.2s,
+          background 0.2s;
+      }
+      .filter-pill:hover {
+        border-color: var(--primary);
+        color: var(--text);
+      }
+      .filter-pill.active {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: #ffffff;
+      }
+
+      /* ---------- Posts grid ---------- */
+      main {
+        padding-bottom: 100px;
+      }
+      .post-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+      }
+      @media (max-width: 720px) {
+        .post-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .post-card {
+        display: flex;
+        flex-direction: column;
+        padding: 28px;
+        border-radius: var(--radius);
+        background: var(--card);
+        border: 1.3px solid var(--border);
+        transition:
+          transform 0.35s ease,
+          border-color 0.35s ease;
+      }
+      .post-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--primary);
+      }
+
+      .post-meta {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--secondary);
+        margin-bottom: 16px;
+      }
+      .post-meta .dot {
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: var(--paragraph);
+      }
+      .post-meta .date {
+        color: var(--paragraph);
+      }
+
+      .post-title {
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-size: 1.28rem;
+        line-height: 1.35;
+        margin-bottom: 12px;
+      }
+
+      .post-excerpt {
+        color: var(--paragraph);
+        font-size: 0.95rem;
+        flex-grow: 1;
+        margin-bottom: 20px;
+      }
+
+      .post-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .tag-chip {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(59, 130, 246, 0.12);
+        color: var(--secondary);
+      }
+
+      .read-more {
+        font-size: 0.88rem;
+        font-weight: 500;
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .read-more .arrow {
+        transition: transform 0.25s ease;
+      }
+      .post-card:hover .read-more .arrow {
+        transform: translateX(3px);
+      }
+
+      /* featured first post spans full width */
+      .post-card.featured {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        gap: 32px;
+        align-items: flex-start;
+      }
+      .post-card.featured .post-body {
+        flex: 1;
+      }
+      .post-card.featured .post-title {
+        font-size: 1.6rem;
+      }
+      @media (max-width: 720px) {
+        .post-card.featured {
+          flex-direction: column;
+        }
+      }
+
+      footer.site-footer {
+        border-top: 1px solid var(--border);
+        padding: 28px 0;
+        color: var(--paragraph);
+        font-size: 0.85rem;
+        font-family: var(--font-mono);
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">ABDIRAHMAN <strong>AFJAR</strong></div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about-me">About Me</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="blog-page.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <!-- Desktop Theme Toggle -->
+      <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="wrap">
+        <div class="eyebrow">~/Blogs<span class="cursor"></span></div>
+        <h1 class="hero-title">Notes from building and breaking things</h1>
+        <p class="hero-sub">
+          Short write-ups on what I'm learning across web development, React
+          Native, and cybersecurity fundamentals — mostly for myself, shared in
+          case it's useful to someone else too.
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrap">
+        <div class="filters">
+          <button class="filter-pill active" data-filter="all">all</button>
+          <button class="filter-pill" data-filter="web">web-dev</button>
+          <button class="filter-pill" data-filter="security">security</button>
+          <button class="filter-pill" data-filter="mobile">react-native</button>
+        </div>
+
+        <div class="post-grid" id="postGrid">
+          <article class="post-card featured" data-tag="security">
+            <div class="post-body">
+              <div class="post-meta">
+                <span>#004</span>
+                <span class="dot"></span>
+                <span class="date">Aug 3, 2026</span>
+                <span class="dot"></span>
+                <span>6 min read</span>
+              </div>
+              <h2 class="post-title">
+                Why I started learning penetration testing as a web developer
+              </h2>
+              <p class="post-excerpt">
+                I used to think security was a separate track from building
+                things. Then I found a stored XSS bug in my own project and
+                realised I'd been shipping code without ever thinking like an
+                attacker. Here's what changed in how I write frontend code since
+                I started on SOC fundamentals.
+              </p>
+              <div class="post-footer">
+                <span class="tag-chip">security</span>
+                <a href="#" class="read-more"
+                  >Read entry <span class="arrow">→</span></a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="post-card" data-tag="mobile">
+            <div class="post-meta">
+              <span>#003</span>
+              <span class="dot"></span>
+              <span class="date">Jul 22, 2026</span>
+            </div>
+            <h3 class="post-title">
+              Porting my first component to React Native
+            </h3>
+            <p class="post-excerpt">
+              Flexbox behaves differently, there's no cascade, and every "just
+              use CSS" instinct I had needed unlearning. Notes on what actually
+              carried over from web dev and what didn't.
+            </p>
+            <div class="post-footer">
+              <span class="tag-chip">react-native</span>
+              <a href="#" class="read-more"
+                >Read entry <span class="arrow">→</span></a
+              >
+            </div>
+          </article>
+
+          <article class="post-card" data-tag="web">
+            <div class="post-meta">
+              <span>#002</span>
+              <span class="dot"></span>
+              <span class="date">Jul 10, 2026</span>
+            </div>
+            <h3 class="post-title">
+              Three responsive-design mistakes I keep making
+            </h3>
+            <p class="post-excerpt">
+              Fixed widths in odd places, forgetting `min-width: 0` on flex
+              children, and testing only at desktop size until the very end. A
+              running list I update whenever I catch myself again.
+            </p>
+            <div class="post-footer">
+              <span class="tag-chip">web-dev</span>
+              <a href="#" class="read-more"
+                >Read entry <span class="arrow">→</span></a
+              >
+            </div>
+          </article>
+
+          <article class="post-card" data-tag="security">
+            <div class="post-meta">
+              <span>#001</span>
+              <span class="dot"></span>
+              <span class="date">Jun 28, 2026</span>
+            </div>
+            <h3 class="post-title">
+              SOC fundamentals, week one: what I actually learned
+            </h3>
+            <p class="post-excerpt">
+              Started with the basics — log analysis, common attack signatures,
+              and why "just monitor everything" is bad advice. Writing this down
+              mostly to hold myself accountable.
+            </p>
+            <div class="post-footer">
+              <span class="tag-chip">security</span>
+              <a href="#" class="read-more"
+                >Read entry <span class="arrow">→</span></a
+              >
+            </div>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        © 2026 Abdirahman Abdirizack — built while learning.
+      </div>
+    </footer>
+
+    <script>
+      const pills = document.querySelectorAll(".filter-pill");
+      const cards = document.querySelectorAll(".post-card");
+
+      pills.forEach((pill) => {
+        pill.addEventListener("click", () => {
+          pills.forEach((p) => p.classList.remove("active"));
+          pill.classList.add("active");
+          const filter = pill.dataset.filter;
+
+          cards.forEach((card) => {
+            const match = filter === "all" || card.dataset.tag === filter;
+            card.style.display = match ? "" : "none";
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

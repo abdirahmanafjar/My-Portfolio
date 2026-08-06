@@ -10,6 +10,31 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <style>
+      :root {
+        --primary: #3b82f6;
+        --secondary: #60a5fa;
+        --background: #0d1117;
+        --card: #161b22;
+        --text: #ffffff;
+        --paragraph: #b8c1cc;
+        --border: rgba(255, 255, 255, 0.08);
+        --shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+        --primary-glow: rgba(96, 165, 250, 0.85);
+        --radius: 18px;
+      }
+      body.dark-mode {
+        --bg-color: #121212;
+        --text-color: #ffffff;
+        --card-bg: rgba(255, 255, 255, 0.05);
+      }
+
+      /* Dark Theme Variables */
+      body.dark-mode {
+        --bg-color: #121212;
+        --text-color: #ffffff;
+        --button-bg: #ffffff;
+        --button-text: #121212;
+      }
       /* CONTACT SECTION */
       .contact-section {
         padding: 100px 5%;
@@ -19,7 +44,6 @@
         text-align: center;
         margin-bottom: 40px;
         font-size: 32px;
-    
       }
 
       /* WRAPPER */
@@ -74,7 +98,7 @@
       .contact-form button {
         margin-top: 15px;
         padding: 12px 25px;
-        background: #ff7a00;
+        background: var(--primary);
         color: #fff;
         border: none;
         border-radius: 25px;
@@ -100,7 +124,7 @@
 
       .contact-card h3 {
         margin-bottom: 20px;
-        color: #ff7a00;
+        color: var(--primary);
       }
 
       .contact-info p {
@@ -118,15 +142,15 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: rgba(255, 122, 0, 0.1);
+        background: #60a5fa1a;
         border-radius: 50%;
-        color: #ff7a00;
+        color: var(--primary);
         font-size: 16px;
         transition: 0.3s ease;
       }
 
       .social-links a:hover {
-        background: #ff7a00;
+        background: var(--secondary);
         color: #fff;
         transform: translateY(-3px);
       }
@@ -193,6 +217,7 @@
         <li><a href="index.html#services">Services</a></li>
         <li><a href="index.html#about-me">About Me</a></li>
         <li><a href="projects.html">Projects</a></li>
+        <li><a href="blog-page.html">Blog</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <!-- Desktop Theme Toggle -->
