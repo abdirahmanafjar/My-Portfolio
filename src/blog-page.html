@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Log — Abdirahman Abdirizack</title>
+    <title>Blog-page</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -74,7 +74,7 @@
       .logo {
         font-weight: 700;
         font-size: 20px;
-        color: #ff7a00;
+        color: var(--primary);
       }
       .logo strong {
         color: var(--paragraph);
@@ -99,11 +99,11 @@
       }
 
       nav ul li a:hover {
-        color: #ff7a00;
+        color: var(--primary);
       }
 
       .nav-btn {
-        background: #ff7a00;
+        background: var(--primary);
         border: none;
         padding: 10px 20px;
         border-radius: 20px;
@@ -176,7 +176,6 @@
       body.dark-mode .theme-toggle span:nth-child(3) {
         transform: rotate(-45deg) translate(6px, -6px);
       }
-
       /* ---------- Hero ---------- */
       header.hero {
         padding: 84px 0 56px;
@@ -208,7 +207,6 @@
         font-weight: 700;
         font-size: clamp(2.2rem, 5vw, 3.4rem);
         letter-spacing: -0.01em;
-        max-width: 14ch;
         margin-bottom: 18px;
       }
       .hero-sub {
@@ -397,7 +395,7 @@
 
     <header class="hero">
       <div class="wrap">
-        <div class="eyebrow">~/log<span class="cursor"></span></div>
+        <div class="eyebrow">~/Blogs<span class="cursor"></span></div>
         <h1 class="hero-title">Notes from building and breaking things</h1>
         <p class="hero-sub">
           Short write-ups on what I'm learning across web development, React
