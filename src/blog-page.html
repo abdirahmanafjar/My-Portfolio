@@ -57,17 +57,12 @@
         justify-content: space-between;
         align-items: center;
         padding: 25px 8%;
-        position: fixed; /* keeps it fixed */
-        top: 0; /* sticks to the top */
-        left: 0; /* aligns to left edge */
-        width: 100%; /* spans full width */
-        background: rgba(
-          8,
-          8,
-          8,
-          0.05
-        ); /*give it a background so text is readable*/
-        z-index: 1000; /* ensures it stays above other elements */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(8, 8, 8, 0.05);
+        z-index: 1000;
         backdrop-filter: blur(8px);
       }
 
@@ -112,7 +107,6 @@
         cursor: pointer;
       }
 
-      /* THEME TOGGLE (3 lines icon) */
       .theme-toggle {
         font-size: 20px;
         cursor: pointer;
@@ -136,7 +130,6 @@
         border-radius: 5px;
       }
 
-      /* Show hamburger only on mobile */
       @media (max-width: 768px) {
         .hamburger {
           display: flex;
@@ -164,7 +157,6 @@
         }
       }
 
-      /* Animate when active */
       body.dark-mode .theme-toggle span:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
       }
@@ -176,6 +168,7 @@
       body.dark-mode .theme-toggle span:nth-child(3) {
         transform: rotate(-45deg) translate(6px, -6px);
       }
+
       /* ---------- Hero ---------- */
       header.hero {
         padding: 84px 0 56px;
@@ -326,38 +319,57 @@
         color: var(--secondary);
       }
 
+      /* ---------- Read more / expand trigger ---------- */
       .read-more {
+        background: none;
+        border: none;
+        font-family: var(--font-body);
         font-size: 0.88rem;
         font-weight: 500;
         color: var(--text);
         display: flex;
         align-items: center;
         gap: 6px;
+        cursor: pointer;
+        padding: 0;
       }
       .read-more .arrow {
-        transition: transform 0.25s ease;
+        transition: transform 0.3s ease;
       }
-      .post-card:hover .read-more .arrow {
+      .post-card:hover .read-more:not(.open) .arrow {
         transform: translateX(3px);
+      }
+      .read-more.open .arrow {
+        transform: rotate(90deg);
+      }
+
+      /* ---------- Expandable content ---------- */
+      .expand-wrapper {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.4s ease;
+      }
+      .expand-wrapper.open {
+        grid-template-rows: 1fr;
+      }
+      .expand-inner {
+        overflow: hidden;
+      }
+      .post-full {
+        color: var(--paragraph);
+        font-size: 0.92rem;
+        line-height: 1.75;
+        padding-top: 18px;
+        margin-top: 18px;
+        border-top: 1px solid var(--border);
       }
 
       /* featured first post spans full width */
       .post-card.featured {
         grid-column: 1 / -1;
-        flex-direction: row;
-        gap: 32px;
-        align-items: flex-start;
-      }
-      .post-card.featured .post-body {
-        flex: 1;
       }
       .post-card.featured .post-title {
         font-size: 1.6rem;
-      }
-      @media (max-width: 720px) {
-        .post-card.featured {
-          flex-direction: column;
-        }
       }
 
       footer.site-footer {
@@ -380,12 +392,9 @@
         <li><a href="blog-page.html">Blog</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <!-- Desktop Theme Toggle -->
       <div class="theme-toggle" id="themeToggle">
         <i class="fas fa-moon"></i>
       </div>
-
-      <!-- Mobile Hamburger -->
       <div class="hamburger" id="hamburger">
         <span></span>
         <span></span>
@@ -436,9 +445,26 @@
               </p>
               <div class="post-footer">
                 <span class="tag-chip">security</span>
-                <a href="#" class="read-more"
-                  >Read entry <span class="arrow">→</span></a
-                >
+                <button class="read-more" type="button">
+                  <span class="read-more-text">Read entry</span>
+                  <span class="arrow">→</span>
+                </button>
+              </div>
+              <div class="expand-wrapper">
+                <div class="expand-inner">
+                  <p class="post-full">
+                    It started with a form field. I'd built a comment box for a
+                    personal project and never sanitised the output — anything
+                    typed in showed up on the page exactly as entered. A friend
+                    pasted a script tag in as a joke, and it ran. That was the
+                    moment "cybersecurity" stopped being a separate subject on
+                    my learning list and started being something I check for in
+                    every input field I write. Since then I've been going
+                    through SOC fundamentals material and treating every form,
+                    query param, and API response as something that could be
+                    hostile until proven otherwise.
+                  </p>
+                </div>
               </div>
             </div>
           </article>
@@ -459,9 +485,25 @@
             </p>
             <div class="post-footer">
               <span class="tag-chip">react-native</span>
-              <a href="#" class="read-more"
-                >Read entry <span class="arrow">→</span></a
-              >
+              <button class="read-more" type="button">
+                <span class="read-more-text">Read entry</span>
+                <span class="arrow">→</span>
+              </button>
+            </div>
+            <div class="expand-wrapper">
+              <div class="expand-inner">
+                <p class="post-full">
+                  The biggest surprise was that flexbox is the default layout
+                  mode, not something you opt into — every View behaves like
+                  `display: flex; flex-direction: column` unless you say
+                  otherwise. That's the opposite of the web, where block layout
+                  is the default. Styling is also all inline objects, so there's
+                  no cascade and no specificity to fight with, which is either
+                  freeing or annoying depending on the day. What carried over
+                  cleanly: thinking in components, and most of my flexbox
+                  alignment intuition once I flipped the default in my head.
+                </p>
+              </div>
             </div>
           </article>
 
@@ -481,9 +523,24 @@
             </p>
             <div class="post-footer">
               <span class="tag-chip">web-dev</span>
-              <a href="#" class="read-more"
-                >Read entry <span class="arrow">→</span></a
-              >
+              <button class="read-more" type="button">
+                <span class="read-more-text">Read entry</span>
+                <span class="arrow">→</span>
+              </button>
+            </div>
+            <div class="expand-wrapper">
+              <div class="expand-inner">
+                <p class="post-full">
+                  1) Fixed pixel widths on anything inside a flex or grid
+                  container — they ignore the container and cause overflow on
+                  small screens. 2) Text inside a flex child overflowing its box
+                  because flex children default to `min-width: auto`, not `0` —
+                  one line of `min-width: 0` fixes more layout bugs than
+                  anything else I've learned. 3) Only checking desktop and one
+                  phone size, then finding out mid-range tablets break the
+                  layout in ways neither size caught.
+                </p>
+              </div>
             </div>
           </article>
 
@@ -503,9 +560,23 @@
             </p>
             <div class="post-footer">
               <span class="tag-chip">security</span>
-              <a href="#" class="read-more"
-                >Read entry <span class="arrow">→</span></a
-              >
+              <button class="read-more" type="button">
+                <span class="read-more-text">Read entry</span>
+                <span class="arrow">→</span>
+              </button>
+            </div>
+            <div class="expand-wrapper">
+              <div class="expand-inner">
+                <p class="post-full">
+                  The first lesson wasn't a tool, it was a mindset shift: a
+                  Security Operations Center isn't about collecting every log
+                  you can — it's about knowing which signals actually matter,
+                  because noise buries real incidents. I spent most of week one
+                  just learning to read logs and recognise a handful of common
+                  attack signatures rather than touching any dashboard. Slower
+                  than I expected, but it's the part that actually sticks.
+                </p>
+              </div>
             </div>
           </article>
         </div>
@@ -532,6 +603,21 @@
             const match = filter === "all" || card.dataset.tag === filter;
             card.style.display = match ? "" : "none";
           });
+        });
+      });
+
+      const readMoreButtons = document.querySelectorAll(".read-more");
+
+      readMoreButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const wrapper = btn
+            .closest(".post-card")
+            .querySelector(".expand-wrapper");
+          const isOpen = wrapper.classList.toggle("open");
+          btn.classList.toggle("open", isOpen);
+          btn.querySelector(".read-more-text").textContent = isOpen
+            ? "Show less"
+            : "Read entry";
         });
       });
     </script>
