@@ -3,205 +3,276 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/style.css" />
+    <meta name="theme-color" content="#080d1a" />
+    <title>Projects | Abdirahman Afjar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <nav>
-      <div class="logo">ABDIRAHMAN <strong>AFJAR</strong></div>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#services">Services</a></li>
-        <li><a href="index.html#about-me">About Me</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="blog-page.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <!-- Desktop Theme Toggle -->
-      <div class="theme-toggle" id="themeToggle">
-        <i class="fas fa-moon"></i>
-      </div>
-
-      <!-- Mobile Hamburger -->
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </nav>
-
-    <div class="project-grid">
-      <!-- CARD 1 -->
-      <div class="project-card">
-        <div class="project-image">
-          <img
-            src="./assets/screen-shots/age-calculator.png"
-            alt="age calculator home-page"
-          />
-          <a
-            href="https://quick-age.vercel.app/"
-            target="_blank"
-            class="floating-btn"
-          >
-            <i class="fas fa-up-right-from-square"></i>
-            <span class="tooltip">View Live</span>
-          </a>
+    <div class="site-shell">
+      <nav class="navbar" aria-label="Main navigation">
+        <a class="logo" href="index.html" aria-label="Abdirahman Afjar home"
+          ><span class="logo-mark">A<span>.</span></span
+          ><span class="logo-name">ABDIRAHMAN <strong>AFJAR</strong></span></a
+        >
+        <ul class="nav-links" id="navLinks">
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="index.html#services">Services</a></li>
+          <li><a class="nav-link" href="index.html#about-me">About</a></li>
+          <li><a class="nav-link active" href="projects.html">Projects</a></li>
+          <li><a class="nav-link" href="blog-page.html">Blog</a></li>
+          <li>
+            <a class="nav-link nav-contact" href="contact.html"
+              >Let's talk <i class="fa-solid fa-arrow-up-right-from-square"></i
+            ></a>
+          </li>
+        </ul>
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          type="button"
+          aria-label="Switch theme"
+        >
+          <i class="fa-solid fa-sun"></i></button
+        ><button
+          class="hamburger"
+          id="hamburger"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+          aria-controls="navLinks"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+      <main class="inner-page">
+        <header class="page-hero section-wrap">
+          <div class="page-kicker">Selected work</div>
+          <h1>Projects built with<br /><span>curiosity &amp; code.</span></h1>
+          <p>
+            Practical projects where I apply what I’m learning, solve problems,
+            and keep improving my craft.
+          </p>
+        </header>
+        <section class="section-wrap">
+          <div class="project-page-grid">
+            <article class="work-card">
+              <div class="work-visual">
+                <img
+                  src="./assets/screen-shots/age-calculator.png"
+                  alt="Age Calculator app screenshot"
+                  loading="lazy"
+                /><a
+                  class="work-open"
+                  href="https://quick-age.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View Age Calculator"
+                  ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                ></a>
+              </div>
+              <div class="work-content">
+                <div class="work-topline">
+                  <span class="work-type">FRONT-END</span
+                  ><span class="work-number">01</span>
+                </div>
+                <h2>Age Calculator</h2>
+                <p>
+                  A simple interactive tool that calculates age from a date of
+                  birth.
+                </p>
+                <div class="work-tags">
+                  <span class="work-tag">HTML</span
+                  ><span class="work-tag">CSS</span
+                  ><span class="work-tag">JavaScript</span>
+                </div>
+                <div class="work-footer">
+                  <span>Live project</span
+                  ><a
+                    href="https://quick-age.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Visit website →</a
+                  >
+                </div>
+              </div>
+            </article>
+            <article class="work-card">
+              <div class="work-visual">
+                <img
+                  src="./assets/screen-shots/calculator-home-page.png"
+                  alt="Calculator app screenshot"
+                  loading="lazy"
+                /><a
+                  class="work-open"
+                  href="https://true-calc.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View Calculator"
+                  ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                ></a>
+              </div>
+              <div class="work-content">
+                <div class="work-topline">
+                  <span class="work-type">FRONT-END</span
+                  ><span class="work-number">02</span>
+                </div>
+                <h2>Calculator</h2>
+                <p>
+                  A browser-based calculator for everyday mathematical
+                  operations.
+                </p>
+                <div class="work-tags">
+                  <span class="work-tag">HTML</span
+                  ><span class="work-tag">CSS</span
+                  ><span class="work-tag">JavaScript</span>
+                </div>
+                <div class="work-footer">
+                  <span>Live project</span
+                  ><a
+                    href="https://true-calc.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Visit website →</a
+                  >
+                </div>
+              </div>
+            </article>
+            <article class="work-card">
+              <div class="work-visual">
+                <img
+                  src="./assets/screen-shots/Screenshot 2026-06-11 192257.png"
+                  alt="To-Do List app screenshot"
+                  loading="lazy"
+                /><a
+                  class="work-open"
+                  href="https://action-list.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="View To-Do List"
+                  ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                ></a>
+              </div>
+              <div class="work-content">
+                <div class="work-topline">
+                  <span class="work-type">FRONT-END</span
+                  ><span class="work-number">03</span>
+                </div>
+                <h2>To-Do List</h2>
+                <p>
+                  A lightweight task manager for adding and tracking everyday
+                  tasks.
+                </p>
+                <div class="work-tags">
+                  <span class="work-tag">HTML</span
+                  ><span class="work-tag">CSS</span
+                  ><span class="work-tag">JavaScript</span>
+                </div>
+                <div class="work-footer">
+                  <span>Live project</span
+                  ><a
+                    href="https://action-list.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Visit website →</a
+                  >
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="projects-note">
+            <strong>More in progress.</strong> New projects will appear here as
+            they’re ready to share.
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="footer-main section-wrap">
+          <div class="footer-brand">
+            <a class="logo" href="index.html"
+              ><span class="logo-mark">A<span>.</span></span
+              ><span class="logo-name"
+                >ABDIRAHMAN <strong>AFJAR</strong></span
+              ></a
+            >
+            <p>Building with curiosity.<br />Creating with purpose.</p>
+            <div class="social-links">
+              <a href="https://github.com/" aria-label="GitHub"
+                ><i class="fa-brands fa-github"></i></a
+              ><a href="https://linkedin.com/" aria-label="LinkedIn"
+                ><i class="fa-brands fa-linkedin-in"></i></a
+              ><a
+                href="mailto:abdirahmanabdirisack76@gmail.com"
+                aria-label="Email"
+                ><i class="fa-regular fa-envelope"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h4>Explore</h4>
+            <a href="index.html">Home</a><a href="#about-me">About</a
+            ><a href="#services">Services</a
+            ><a href="./projects.html">Projects</a>
+          </div>
+          <div class="footer-column">
+            <h4>Elsewhere</h4>
+            <a href="./blog-page.html">Blog & insights</a
+            ><a href="./contact.html">Contact me</a
+            ><a href="mailto:abdirahmanabdirisack76@gmail.com">Email me</a>
+          </div>
+          <div class="footer-note">
+            <span class="footer-status"
+              ><i></i> Open to learning & collaboration</span
+            >
+            <p>Based in Kenya · Working across the web</p>
+          </div>
         </div>
-        <div class="badge fullstack">FRONT-END</div>
-        <div class="project-title">Age-Calcultor app</div>
-        <div class="project-description">
-          A high-performance age-calculation application.
+        <div class="footer-bottom section-wrap">
+          <span>© 2026 Abdirahman Afjar. Built with intention.</span
+          ><a href="#home">Back to top ↑</a>
         </div>
-        <div class="tags">
-          <div class="tag">HTML</div>
-          <div class="tag">CSS</div>
-          <div class="tag">JAVASCRIPT</div>
-        </div>
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="project-card">
-        <div class="project-image">
-          <img
-            src="assets/screen-shots/calculator-home-page.png"
-            alt="calculator home-page"
-          />
-          <a
-            href="https://true-calc.vercel.app/"
-            target="_blank"
-            class="floating-btn"
-          >
-            <i class="fas fa-up-right-from-square"></i>
-            <span class="tooltip">View Live</span>
-          </a>
-        </div>
-        <div class="badge dataviz">FRONTEND</div>
-        <div class="project-title">Calculator app</div>
-        <div class="project-description">
-          Predictive data visualization tool for analyzing climate patterns
-          using D3.js and Python.
-        </div>
-        <div class="tags">
-          <div class="tag">HTML</div>
-          <div class="tag">CSS</div>
-          <div class="tag">JAVASCRIPT</div>
-        </div>
-      </div>
-
-      <!-- CARD 3 -->
-      <div class="project-card">
-        <div class="project-image">
-          <img
-            src="./assets/screen-shots/Screenshot 2026-06-11 192257.png"
-            alt="To-do-app-screenshot"
-          />
-          <a
-            href="https://action-list.vercel.app/"
-            target="_blank"
-            class="floating-btn"
-          >
-            <i class="fas fa-up-right-from-square"></i>
-            <span class="tooltip">View Live</span>
-          </a>
-        </div>
-        <div class="badge mobile">FRONTEND</div>
-        <div class="project-title">To-list-app</div>
-        <div class="project-description">
-          A mobile-first networking platform for university students to
-          collaborate on research.
-        </div>
-        <div class="tags">
-          <div class="tag">HTML</div>
-          <div class="tag">CSS</div>
-          <div class="tag">JAVASCRIPT</div>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-image">
-          <img
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800"
-            alt=""
-          />
-          <a
-            href="https://your-live-link.com"
-            target="_blank"
-            class="floating-btn"
-          >
-            <i class="fas fa-up-right-from-square"></i>
-            <span class="tooltip">View Live</span>
-          </a>
-        </div>
-        <div class="badge mobile">MOBILE</div>
-        <div class="project-title">Social Connect</div>
-        <div class="project-description">
-          A mobile-first networking platform for university students to
-          collaborate on research.
-        </div>
-        <div class="tags">
-          <div class="tag">Flutter</div>
-          <div class="tag">Firebase</div>
-          <div class="tag">Dart</div>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-image">
-          <img
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800"
-            alt=""
-          />
-          <a
-            href="https://your-live-link.com"
-            target="_blank"
-            class="floating-btn"
-          >
-            <i class="fas fa-up-right-from-square"></i>
-            <span class="tooltip">View Live</span>
-          </a>
-        </div>
-        <div class="badge mobile">MOBILE</div>
-        <div class="project-title">Social Connect</div>
-        <div class="project-description">
-          A mobile-first networking platform for university students to
-          collaborate on research.
-        </div>
-        <div class="tags">
-          <div class="tag">Flutter</div>
-          <div class="tag">Firebase</div>
-          <div class="tag">Dart</div>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-image">
-          <img
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800"
-            alt=""
-          />
-          <a
-            href="https://your-live-link.com"
-            target="_blank"
-            class="floating-btn"
-          >
-            <i class="fas fa-up-right-from-square"></i>
-            <span class="tooltip">View Live</span>
-          </a>
-        </div>
-        <div class="badge mobile">MOBILE</div>
-        <div class="project-title">Social Connect</div>
-        <div class="project-description">
-          A mobile-first networking platform for university students to
-          collaborate on research.
-        </div>
-        <div class="tags">
-          <div class="tag">Flutter</div>
-          <div class="tag">Firebase</div>
-          <div class="tag">Dart</div>
-        </div>
-      </div>
+      </footer>
     </div>
+    <script src="./js/main.js"></script>
+    <script>
+      (() => {
+        let b = document.body,
+          t = document.getElementById("themeToggle"),
+          i = t.querySelector("i"),
+          s = localStorage.getItem("afjar-theme");
+        if (
+          s
+            ? s === "light"
+            : matchMedia("(prefers-color-scheme: light)").matches
+        )
+          b.classList.add("light-mode");
+        function u() {
+          let l = b.classList.contains("light-mode");
+          i.className = l ? "fa-solid fa-moon" : "fa-solid fa-sun";
+          t.setAttribute(
+            "aria-label",
+            l ? "Switch to dark theme" : "Switch to light theme",
+          );
+        }
+        u();
+        t.addEventListener("click", () => {
+          b.classList.toggle("light-mode");
+          localStorage.setItem(
+            "afjar-theme",
+            b.classList.contains("light-mode") ? "light" : "dark",
+          );
+          u();
+        });
+      })();
+    </script>
   </body>
-  <script src="./js/main.js"></script>
 </html>
